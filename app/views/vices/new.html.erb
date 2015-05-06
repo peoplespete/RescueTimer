@@ -1,0 +1,10 @@
+
+<h1>New Vice</h1>
+<%= form_for @vice, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= label_tag(:q, "Name:") %>
+  <%= f.text_field :name %>
+  <%= label_tag(:q, "URL:") %>
+  <%= f.url_field(:url) %>
+  <%= select("Category", "category", ["Glancer","Engroser"], {:include_blank => true}) %>
+  <%= f.submit "Save" %>
+<% end %>
