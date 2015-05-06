@@ -2,6 +2,11 @@ class VicesController < ApplicationController
 
   def new
     @vice = Vice.new
+    rt_key = "B63EA6sEEsGpRmazJhsQCR2QjmHd3LbBeeo4VX6l"
+    rt_url = "https://www.rescuetime.com/anapi/data?key=#{rt_key}&format=json"
+    results = HTTParty.get(rt_url)
+    @options = results["rows"].map{|r| r[3]}
+    # populate a selection of sites from their api!!!!
   end
 
   def all
@@ -14,10 +19,10 @@ class VicesController < ApplicationController
   end
 
   def create
-    name = params["vice"]["name"]
-    url = params["vice"]["url"]
+    name = params["Name"]["name"]
     category = params["Category"]["category"]
-    Vice.create(name: name, url: url, category: category)
+    # get the category by hitting their api!!!
+    Vice.create(name: name, category: category)
     redirect_to action: "all"
   end
 
