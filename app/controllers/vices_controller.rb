@@ -5,7 +5,7 @@ class VicesController < ApplicationController
     rt_key = "B63EA6sEEsGpRmazJhsQCR2QjmHd3LbBeeo4VX6l"
     rt_url = "https://www.rescuetime.com/anapi/data?key=#{rt_key}&format=json"
     results = HTTParty.get(rt_url)
-    @options = results["rows"].map{|r| r[3]}
+    @options = results["rows"].map{|r| r[3]}.sort
     # populate a selection of sites from their api!!!!
   end
 
