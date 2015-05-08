@@ -14,11 +14,3 @@
  *= require_self
  */
 
-body {
-  margin-left: 20px;
-  background-color: lightblue !important;
-  color: darkblue !important;
-  font-family: 'Ubuntu', sans-serif;
-
-
-}

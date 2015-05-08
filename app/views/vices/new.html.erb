@@ -3,6 +3,6 @@
 <%= form_for @vice, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%= label_tag(:q, "Name:") %>
   <%= select("Name", "name", @options, {:include_blank => true}) %>
-  <%= select("Category", "category", ["Glancer","Engroser"], {:include_blank => true}) %>
+  <%= select("Category", "category", ["Glancer","Engrosser"], {:include_blank => true}) %>
   <%= f.submit "Save" %>
 <% end %>

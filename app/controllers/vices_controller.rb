@@ -11,6 +11,8 @@ class VicesController < ApplicationController
 
   def all
     @vices = Vice.all
+    @total = 50
+    # @remaining = 5
   end
 
   def destroy
