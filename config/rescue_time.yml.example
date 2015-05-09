@@ -1,0 +1,7 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+api_key: B63EA6sEEsGpRmazJhsQCR2QjmHd3LbBeeo4VX6l
