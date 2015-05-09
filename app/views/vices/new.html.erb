@@ -4,5 +4,5 @@
   <%= label_tag(:q, "Name:") %>
   <%= select("Name", "name", @options, {:include_blank => true}) %>
   <%= select("Category", "category", ["Glancer","Engrosser"], {:include_blank => true}) %>
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class:"btn btn-success" %>
 <% end %>

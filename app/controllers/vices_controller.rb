@@ -5,14 +5,12 @@ class VicesController < ApplicationController
     rt_key = "B63EA6sEEsGpRmazJhsQCR2QjmHd3LbBeeo4VX6l"
     rt_url = "https://www.rescuetime.com/anapi/data?key=#{rt_key}&format=json"
     results = HTTParty.get(rt_url)
-    @options = results["rows"].map{|r| r[3]}.sort
+    @options = results["rows"].map{|r| r[3]}.sort_by{|name| name.downcase}
     # populate a selection of sites from their api!!!!
   end
 
   def all
     @vices = Vice.all
-    @total = 50
-    # @remaining = 5
   end
 
   def destroy
@@ -21,8 +19,9 @@ class VicesController < ApplicationController
   end
 
   def create
-    name = params["Name"]["name"]
-    category = params["Category"]["category"]
+    name = params["Name"]["name"] == "" ? nil : params["Name"]["name"]
+    category = params["Category"]["category"] == "" ? nil : params["Category"]["category"]
+    return redirect_to action: "new" unless name && category
     # get the category by hitting their api!!!
     Vice.create(name: name, category: category)
     redirect_to action: "all"
