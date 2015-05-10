@@ -1,8 +1,14 @@
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<div class="row">
 
-<h1>New Vice</h1>
-<%= form_for @vice, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-  <%= label_tag(:q, "Name:") %>
-  <%= select("Name", "name", @options, {:include_blank => true}) %>
-  <%= select("Category", "category", ["Glancer","Engrosser"], {:include_blank => true}) %>
-  <%= f.submit "Save", class:"btn btn-success" %>
-<% end %>
+  <h1>New Vice</h1>
+  <%= form_for @vice, url: {action: "create"}, html: {class: "new_vice_form"} do |f| %>
+    <%= label_tag(:q, "Name:") %>
+    <%= select("Name", "name", @options, {:include_blank => true}) %>
+    <%= select("Category", "category", ["Glancer","Engrosser"], {:include_blank => true}) %>
+    <%= f.submit "Save", class:"btn btn-success" %>
+  <% end %>
+</div>
+</div>

@@ -11,4 +11,43 @@ body {
   .inline{
     display: inline !important;
   }
+  #vice_manager, #time_manager{
+    background-color: #fefed0;
+    padding: 0px 40px;
+    border-radius: 10px;
+    table{
+      margin-top: 10px;
+      background-color: white;
+      th{
+        background-color: lightblue;
+      }
+      td{
+          text-align: center;
+          font-size: 1.2em;
+      }
+    }
+    .name:hover{
+      cursor: pointer;
+    }
+  }
+  #time_manager{
+    padding-top: 2px;
+    padding-bottom: 20px;
+    margin-top: 15px;
+  }
+  span{
+    font-size: 1.3em;
+    margin: 5px;
+  }
+  .new_vice_form{
+    background-color: #fefed0;
+    border-radius: 10px;
+    // padding: 15px 40px;
+    input{
+      margin: 10px;
+    }
+    label{
+      margin-left: 10px;
+    }
+  }
 }
