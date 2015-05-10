@@ -17,7 +17,6 @@
 /tmp
 
 /vendor/*
-Gemfile.lock
 log/*
 *.rbc
 capybara-*.html
