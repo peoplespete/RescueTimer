@@ -6,7 +6,7 @@
 </div>
 <div id="vice_manager">
   <div class="row">
-    <h2>Vice Manager</h2>
+    <h2 id="vice_manager_title">Vice Manager</h2>
   </div>
   <div class="row">
     <a class='btn btn-success' href='/vices/new'>Add a vice</button></a>
@@ -15,8 +15,8 @@
   <div class="row">
     <table class="table table-bordered table-hover">
       <tr>
-        <th>Site</th>
-        <th>Category</th>
+        <th id="site_header">Site</th>
+        <th id="category_header">Category</th>
         <th></th>
       </tr
       <% @vices.each do |vice| %>
@@ -26,6 +26,8 @@
           <td><%= button_to "x", vice_path(:id => vice.id), :method => :delete, class: "inline btn btn-danger" %></td>
         </tr>
       <% end %>
+      <tr>
+      </tr>
     </table>
   </div>
 </div>
