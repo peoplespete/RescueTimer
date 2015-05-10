@@ -2,8 +2,7 @@ class VicesController < ApplicationController
 
   def new
     @vice = Vice.new
-    # rt_key = ENV["rescue_time_api_key"]
-    rt_key = ENV["api_key"]
+    rt_key = ENV["rescue_time_api_key"] || ENV["api_key"]
     rt_url = "https://www.rescuetime.com/anapi/data?key=#{rt_key}&format=json"
     results = HTTParty.get(rt_url)
     @options = results["rows"].map{|r| r[3]}.sort_by{|name| name.downcase}

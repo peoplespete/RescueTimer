@@ -76,7 +76,7 @@ $(document).ready ->
             change = 1
             tr.addClass("success")
         else
-          if delta_so_far < 20 && engrossing_before
+          if delta_so_far < 25 && engrossing_before
             console.log "engrosser before"
             change = 5
             tr.removeClass("success")
@@ -84,7 +84,7 @@ $(document).ready ->
 
           else
             console.log "engrosser after"
-            remaining += (20-4) if engrossing_before # restores penalty for glancing use
+            remaining += (25-5) if engrossing_before # restores penalty for glancing use
             tr.removeClass("danger")
             tr.addClass("success")
 
