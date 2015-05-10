@@ -55,45 +55,45 @@ $(document).ready ->
 
     else
       # turning on
-      # $(this).text("in use")
-      remaining_at_start = parseInt( $("#remaining").text(), 10 )
-      remaining = parseInt( $("#remaining").text(), 10 )
-      glancer = is_glancer(this)
-      engrossing_before = !glancer
-      console.log engrossing_before
-      window.decreaser = setInterval (->
-        delta_so_far = remaining_at_start - remaining
+      nothing_in_use = tr.parent().children(".success, .danger").length == 0
+      if nothing_in_use
+        remaining_at_start = parseInt( $("#remaining").text(), 10 )
+        remaining = parseInt( $("#remaining").text(), 10 )
+        glancer = is_glancer(this)
+        engrossing_before = !glancer
+        window.decreaser = setInterval (->
+          delta_so_far = remaining_at_start - remaining
 
-        if glancer
-          if delta_so_far > 5
-            console.log "glancer after"
-            change = 5
-            tr.removeClass("success")
-            tr.addClass("danger")
+          if glancer
+            if delta_so_far > 5
+              console.log "glancer after"
+              change = 5
+              tr.removeClass("success")
+              tr.addClass("danger")
 
+            else
+              console.log "glancer before"
+              change = 1
+              tr.addClass("success")
           else
-            console.log "glancer before"
-            change = 1
-            tr.addClass("success")
-        else
-          if delta_so_far < 25 && engrossing_before
-            console.log "engrosser before"
-            change = 5
-            tr.removeClass("success")
-            tr.addClass("danger")
+            if delta_so_far < 25 && engrossing_before
+              console.log "engrosser before"
+              change = 5
+              tr.removeClass("success")
+              tr.addClass("danger")
 
-          else
-            console.log "engrosser after"
-            remaining += (25-5) if engrossing_before # restores penalty for glancing use
-            tr.removeClass("danger")
-            tr.addClass("success")
+            else
+              console.log "engrosser after"
+              remaining += (25-5) if engrossing_before # restores penalty for glancing use
+              tr.removeClass("danger")
+              tr.addClass("success")
 
-            change = 1
-            engrossing_before = false
+              change = 1
+              engrossing_before = false
 
-        remaining -= change #(this number adjusts according to how much they've been on the site depending on site type)
+          remaining -= change #(this number adjusts according to how much they've been on the site depending on site type)
 
-        $("#remaining").text(remaining)
-        return
-      ), 600
+          $("#remaining").text(remaining)
+          return
+        ), 600
 
