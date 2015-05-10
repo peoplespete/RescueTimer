@@ -3,10 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  margin-left: 20px;
+  // margin-left: 50px !important;
+
   background-color: lightblue !important;
   color: darkblue !important;
   font-family: 'Ubuntu', sans-serif;
-
-
+  .inline{
+    display: inline !important;
+  }
 }

@@ -8,48 +8,54 @@ is_glancer = (thissy) ->
   /glancer/i.test(category)
 
 $(document).ready ->
-  steps = [
-    {
-      content: '<p>First look at this thing</p>'
-      highlightTarget: true
-      nextButton: true
-      target: $('.name')
-      my: 'bottom center'
-      at: 'top center'
-    }
-    {
-      content: '<p>And then at this thing</p>'
-      highlightTarget: true
-      nextButton: true
-      target: $('.category')
-      my: 'bottom center'
-      at: 'top center'
-    }
-  ]
-  tour = new (Tourist.Tour)(
-    steps: steps
-    tipClass: 'Bootstrap'
-    tipOptions: showEffect: 'slidein')
-
-  tour.start()
+  console.log $.cookie("visit_counter")
+  $.cookie("visit_counter", "0") if $.cookie("visit_counter") == null
+  new_value = String(parseInt(  $.cookie "visit_counter" ) + 1)
+  $.cookie "visit_counter", new_value
+  if $.cookie("visit_counter") == "1"
+    steps = [
+      {
+        content: '<p>Name of the website shown in this column</p>'
+        highlightTarget: true
+        nextButton: true
+        target: $('.name')
+        my: 'bottom center'
+        at: 'top center'
+      }
+      {
+        content: '<p>Sites are categorized as engrossers (these are sites that...) or glancers (these are sites that...)</p>'
+        highlightTarget: true
+        nextButton: true
+        target: $('.category')
+        my: 'bottom center'
+        at: 'top center'
+      }
+    ]
+    tour = new (Tourist.Tour)(
+      steps: steps
+      tipClass: 'Bootstrap'
+      tipOptions: showEffect: 'slidein')
+    console.log "touring now"
+    tour.start()
 
   $("#total").text("50")
   $("#remaining").text($("#total").text()) #resets balance
-  in_use = null
 
   $(".name").click ->
-    if "in use" == $(this).text()
+    tr = $(this).parent()
+    in_use = tr.hasClass("success") || tr.hasClass("danger")
+    if in_use
       # turning off
-      $(this).text(in_use)
+      # $(this).text(in_use)
       in_use = null
       window.clearInterval(window.decreaser)# if window.decreaser
       engrossing_before = false
+      tr.removeClass("success")
+      tr.removeClass("danger")
 
-    else if in_use == null
+    else
       # turning on
-      in_use = $(this).text()
-      $(this).text("in use")
-
+      # $(this).text("in use")
       remaining_at_start = parseInt( $("#remaining").text(), 10 )
       remaining = parseInt( $("#remaining").text(), 10 )
       glancer = is_glancer(this)
@@ -62,16 +68,26 @@ $(document).ready ->
           if delta_so_far > 5
             console.log "glancer after"
             change = 5
+            tr.removeClass("success")
+            tr.addClass("danger")
+
           else
             console.log "glancer before"
             change = 1
+            tr.addClass("success")
         else
           if delta_so_far < 20 && engrossing_before
             console.log "engrosser before"
             change = 5
+            tr.removeClass("success")
+            tr.addClass("danger")
+
           else
             console.log "engrosser after"
             remaining += (20-4) if engrossing_before # restores penalty for glancing use
+            tr.removeClass("danger")
+            tr.addClass("success")
+
             change = 1
             engrossing_before = false
 

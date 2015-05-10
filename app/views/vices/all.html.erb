@@ -1,20 +1,28 @@
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+<div class="row">
+  <h1>Vice Dashboard</h1>
+</div>
+<div class="row">
+  <h2>Vice Manager</h2>
+</div>
+<div class="row">
+  <a class='btn btn-success' href='/vices/new'>Add a vice</button></a>
+</div>
 
-<h1>Vice Dashboard</h1>
-<h2>Vice Manager</h2>
-<a class='btn btn-success' href='/vices/new'>Add a vice</button></a>
-<ul class="list-group">
-  <% @vices.each do |vice| %>
-    <li class="list-group-item">
-      <span class="name"><%= vice.name %></span>
-      <span class="category"><%= vice.category %></span>
-      <button class="btn btn-small btn-danger">
-      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      <%= button_to "delete", vice_path(:id => vice.id), :method => :delete, :class =>"glyphicon glyphicon-remove" %>
-      </button>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Time Manager</h2>
-<div><span>Weekly Allotment:</span><span id="total"><%= @total %></span></div>
-<div><span>Remaining Allotment:</span><span id="remaining"><%= @remaining %></span></div>
+<div class="row">
+  <table class="table table-bordered">
+    <% @vices.each do |vice| %>
+      <tr>
+        <td class="name"><%= vice.name %></td>
+        <td class="category"><%= vice.category %></td>
+        <td><%= button_to "x", vice_path(:id => vice.id), :method => :delete, class: "inline btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+  <h2>Time Manager</h2>
+  <div><span>Weekly Allotment:</span><span id="total"><%= @total %></span></div>
+  <div><span>Remaining Allotment:</span><span id="remaining"><%= @remaining %></span></div>
+</div>
