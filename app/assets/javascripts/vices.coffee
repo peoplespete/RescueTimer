@@ -15,12 +15,12 @@ $(document).ready ->
   if $.cookie("visit_counter") == "1"
     steps = [
       {
-        content: "<p>As I've thought about RescueTime's incredible amount of browsing data, I wonder, am I often a little distracted or rarely very distracted.  And does the distraction pattern follow a pattern by site or activity?
+        content: "<p>As I've thought about RescueTime's incredible amount of browsing data, I wonder, am I often a little distracted or rarely very distracted?  And does the distraction pattern follow a pattern by site or activity?
           </p>"
         highlightTarget: true
         nextButton: true
         target: $('#vice_manager_title')
-        my: 'bottom center'
+        my: 'top center'
         at: 'bottom center'
       }
       {
@@ -28,7 +28,7 @@ $(document).ready ->
         highlightTarget: true
         nextButton: true
         target: $('#category_header')
-        my: 'bottom center'
+        my: 'top center'
         at: 'bottom center'
       }
       {

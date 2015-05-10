@@ -1,7 +1,7 @@
 # RescueTimer
 Feature Idea for RescueTime's Productivity Service
 
-As I've thought about RescueTime's incredible amount of browsing data, I wonder, am I often a little distracted or rarely very distracted.  And does the distraction pattern follow a pattern by site or activity?
+As I've thought about RescueTime's incredible amount of browsing data, I wonder, am I often a little distracted or rarely very distracted?  And does the distraction pattern follow a pattern by site or activity?
 
 Assuming it does, I've mocked out a feature in which a user can categorize sites as a glancer (a site that is best used briefly in moments of boredom) or an engrosser (a site that is best used for extended periods to be beneficial).  This categorization could then be tied to a time management feature, which could limit access to these sites or activities.
 
