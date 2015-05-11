@@ -55,6 +55,23 @@ $(document).ready ->
         my: 'bottom center'
         at: 'top center'
       }
+      {
+        content: "Click on the site to start 'using' the website.  Notice how the color of the row changes depending on whether the time on that type of site is currently cheap or expensive."
+        highlightTarget: true
+        nextButton: true
+        target: $('.name')
+        my: 'top center'
+        at: 'bottom center'
+      }
+      {
+        content: "Click on the site to toggle off the website."
+        highlightTarget: true
+        nextButton: true
+        target: $('.name')
+        my: 'top center'
+        at: 'bottom center'
+      }
+
     ]
     tour = new (Tourist.Tour)(
       steps: steps
